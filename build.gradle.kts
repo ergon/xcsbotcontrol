@@ -1,6 +1,7 @@
 plugins {
     application
     java
+    `maven-publish`
 }
 
 application {
@@ -30,6 +31,10 @@ java {
     targetCompatibility = JavaVersion.VERSION_1_8
 }
 
+repositories {
+    jcenter()
+}
+
 dependencies {
     compile("com.google.code.gson:gson:2.7")
     compile("com.google.guava:guava:28.0-jre")
@@ -46,7 +51,24 @@ tasks.withType<JavaCompile> {
     compilerArgs.add("-Aproject=xcsbotcontrol")
 }
 
+group = "ch.ergon.xcsbotcontrol"
+version = "1.0"
 
-repositories {
-    jcenter()
+publishing {
+    publications {
+        register("gpr", MavenPublication::class) {
+            from(components["java"])
+        }
+    }
+    repositories {
+        maven {
+            name = "GitHubPackages"
+            url = uri("https://maven.pkg.github.com/ergon/xcsbotcontrol")
+            credentials {
+                username = project.findProperty("gpr.user") as String? ?: System.getenv("USERNAME")
+                password = project.findProperty("gpr.key") as String? ?: System.getenv("PASSWORD")
+            }
+        }
+    }
+
 }
