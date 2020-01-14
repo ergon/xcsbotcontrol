@@ -19,7 +19,7 @@ e.g.
 ### Create a bot
 ```java -jar xcsbotcontrol.jar -a create myBotConfig.json```
 
-Creates a bot on the Xcode Server. By providing a space limited list of config files, many bots can be created with one call.
+Creates a bot on the Xcode Server. By providing a space-delimited list of config files, many bots can be created with one call.
 
 If you want to create a single bot based on a template config file, but override things like the bot name or the branch (e.g. for integration with your CI workflow), you can do so by specifying additional arguments:
 ```java -jar xcsbotcontrol.jar -a create -n myBotName -b "feature/myBranch" myBotConfig.json```
@@ -32,7 +32,7 @@ Deletes the bot with the given name on the Xcode Server.
 ### Delete bots based on config files
 ```java -jar xcsbotcontrol.jar -a delete myBotConfig.json```
 
-Deletes the bot specified in the config file on the Xcode Server. By providing a space limited list of config files, many bots can be deleted with one call.
+Deletes the bot specified in the config file on the Xcode Server. By providing a space-delimited list of config files, many bots can be deleted with one call.
 
 ### Start the integration for a bot
 ```java -jar xcsbotcontrol.jar -a integrate -n myBotName -s xcodeserver.mycompany.com```
@@ -42,7 +42,7 @@ Starts the integration of the bot with the given name on the Xcode Server.
 ### Start the integration based on config files
 ```java -jar xcsbotcontrol.jar -a integrate myBotConfig.json```
 
-Starts the integration of the bot specified in the config file on the Xcode Server. By providing a space limited list of config files, many bots can be started with one call.
+Starts the integration of the bot specified in the config file on the Xcode Server. By providing a space-delimited list of config files, many bots can be started with one call.
 
 ### Write an example config
 ```java -jar xcsbotcontrol.jar -a example```
