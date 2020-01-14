@@ -270,14 +270,16 @@ public class BotController implements Callable<Integer> {
 		site.setPerformArchiveExport(false);
 		site.setPerformTest(true);
 
-		site.setPreBuildScript("#!/bin/sh\n"
-				+ "cd \"$XCS_SOURCE_DIR/working_path/\"\n"
-				+ "./ProjectName/Scripts/notifyBitbucket.py prebuild");
+		site.setPreBuildScript("#!/bin/bash\n"
+				+ "cd $XCS_PRIMARY_REPO_DIR\n"
+				+ "TRIGGER_SCRIPT=ContinuousIntegration/Scripts/preBuildScript.sh\n"
+				+ "if command -V $TRIGGER_SCRIPT; then $TRIGGER_SCRIPT; fi");
 
 		PostBuildScriptTrigger postBuildScriptTrigger = new PostBuildScriptTrigger();
-		postBuildScriptTrigger.setScript("#!/bin/sh\n"
-				+ "cd \"$XCS_SOURCE_DIR/working_path/\"\n"
-				+ "./ProjectName/Scripts/notifyBitbucket.py postbuild");
+		postBuildScriptTrigger.setScript("#!/bin/bash\n"
+				+ "cd $XCS_PRIMARY_REPO_DIR\n"
+				+ "TRIGGER_SCRIPT=ContinuousIntegration/Scripts/postBuildScriptTrigger.sh\n"
+				+ "if command -V $TRIGGER_SCRIPT; then $TRIGGER_SCRIPT; fi");
 		postBuildScriptTrigger.setConditions(Sets.newHashSet(PostBuildTriggerCondition.values()));
 		site.getPostBuildScriptTriggers().add(postBuildScriptTrigger);
 
