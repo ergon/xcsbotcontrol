@@ -24,7 +24,7 @@ public class SourceControlBlueprint {
 	protected List<RemoteRepository> remoteRepository = new ArrayList<>();
 
 	@SerializedName("DVTSourceControlWorkspaceBlueprintRemoteRepositoryAuthenticationStrategiesKey")
-	protected Map<String, Authentication> authentication = new HashMap<>(); // repoId -> Authentication
+	protected Map<String, RepositoryAuthentication> authentication = new HashMap<>(); // repoId -> Authentication
 
 	@SerializedName("DVTSourceControlWorkspaceBlueprintLocationsKey")
 	protected Map<String, Branch> branch = new HashMap<>(); // repoId -> Branch
@@ -50,83 +50,12 @@ public class SourceControlBlueprint {
 	@SerializedName("DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey")
 	protected Map<String, BigDecimal> workingCopyStates = new HashMap<>();
 
-	static class RemoteRepository {
-		@SerializedName("DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey")
-		protected String repoId = UUID.randomUUID().toString();
-
-		@SerializedName("DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey")
-		protected String remoteUrl;
-
-		@SerializedName("DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey")
-		protected String scmType = "com.apple.dt.Xcode.sourcecontrol.Git"; // fixed to GIT for now
-
-		@SerializedName("DVTSourceControlWorkspaceBlueprintRemoteRepositoryTrustedCertFingerprintKey")
-		protected String certificateFingerprint;
-
-		@SerializedName("DVTSourceControlWorkspaceBlueprintRemoteRepositoryTrustSelfSignedCertKey")
-		protected boolean trustSelfSignedCertificate = true;
-
-		@Override
-		public String toString() {
-			return "RemoteRepository{" +
-					"repoId='" + repoId + '\'' +
-					", remoteUrl='" + remoteUrl + '\'' +
-					", scmType='" + scmType + '\'' +
-					", certificateFingerprint='" + certificateFingerprint + '\'' +
-					", trustSelfSignedCertificate=" + trustSelfSignedCertificate +
-					'}';
-		}
+	public String getPrimaryRepoId() {
+		return primaryRepoId;
 	}
 
-	static class Authentication {
-		@SerializedName("DVTSourceControlWorkspaceBlueprintRemoteRepositoryAuthenticationTypeKey")
-		protected String authenticationType = "DVTSourceControlSSHKeysAuthenticationStrategy"; // only supporting SSH Keys here
-
-		@SerializedName("DVTSourceControlWorkspaceBlueprintRemoteRepositoryUsernameKey")
-		protected String username = "git";
-
-		@SerializedName("DVTSourceControlWorkspaceBlueprintRemoteRepositoryPasswordKey")
-		protected String sshKeyPassphrase = "";
-
-		@SerializedName("DVTSourceControlWorkspaceBlueprintRemoteRepositoryAuthenticationStrategiesKey")
-		protected String sshPrivateKey; // must be base64 encoded
-
-		@SerializedName("DVTSourceControlWorkspaceBlueprintRemoteRepositoryPublicKeyDataKey")
-		protected String sshPublicKey; // must be base64 encoded optional
-
-		@Override
-		public String toString() {
-			return "Authentication{" +
-					"authenticationType='" + authenticationType + '\'' +
-					", username='" + username + '\'' +
-					", sshKeyPassphrase='" + sshKeyPassphrase + '\'' +
-					", sshPrivateKey='" + sshPrivateKey + '\'' +
-					", sshPublicKey='" + sshPublicKey + '\'' +
-					'}';
-		}
-	}
-
-	static class Branch {
-		@SerializedName("DVTSourceControlBranchIdentifierKey")
-		protected String branch = "master";
-
-		/*
-		 * 4 (normal remote branch) | 5 (primary remote branch, i.e. trunk)
-		 */
-		@SerializedName("DVTSourceControlBranchOptionsKey")
-		protected int branchOptions = 5;
-
-		@SerializedName("DVTSourceControlWorkspaceBlueprintLocationTypeKey")
-		protected String type = "DVTSourceControlBranch"; // yes, we really mean a branch
-
-		@Override
-		public String toString() {
-			return "Branch{" +
-					"branch='" + branch + '\'' +
-					", branchOptions=" + branchOptions +
-					", type='" + type + '\'' +
-					'}';
-		}
+	public Map<String, Branch> getBranch() {
+		return branch;
 	}
 
 	@Override

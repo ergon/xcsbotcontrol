@@ -1,6 +1,6 @@
 package ch.ergon.xcsbotcontrol.api.model;
 
-final class TriggerConditions {
+class TriggerConditions {
 	protected transient int status = 2; // undocumented, skipping in json
 	protected boolean onWarnings = true;
 	protected boolean onBuildErrors = true;

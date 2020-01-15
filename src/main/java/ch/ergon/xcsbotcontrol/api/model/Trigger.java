@@ -1,6 +1,6 @@
 package ch.ergon.xcsbotcontrol.api.model;
 
-final class Trigger {
+class Trigger {
 	protected String name = "";
 	protected TriggerPhase phase = TriggerPhase.BEFORE;
 	protected TriggerType type = TriggerType.SCRIPT;

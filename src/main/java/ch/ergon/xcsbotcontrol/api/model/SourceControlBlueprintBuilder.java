@@ -97,21 +97,21 @@ public class SourceControlBlueprintBuilder {
 	}
 
 	static class RepositorySite  {
-		protected SourceControlBlueprint.RemoteRepository repository = new SourceControlBlueprint.RemoteRepository();
-		protected SourceControlBlueprint.Authentication authentication = new SourceControlBlueprint.Authentication();
-		protected SourceControlBlueprint.Branch branch = new SourceControlBlueprint.Branch();
+		protected RemoteRepository repository = new RemoteRepository();
+		protected RepositoryAuthentication authentication = new RepositoryAuthentication();
+		protected Branch branch = new Branch();
 		protected String workingCopyPath;
 		protected boolean primary = false;
 	}
 
 	public static class AuthenticationBuilder {
-		private final SourceControlBlueprint.Authentication auth = new SourceControlBlueprint.Authentication();
+		private final RepositoryAuthentication auth = new RepositoryAuthentication();
 
 		public static AuthenticationBuilder authentication() {
 			return new AuthenticationBuilder();
 		}
 
-		public SourceControlBlueprint.Authentication build() {
+		public RepositoryAuthentication build() {
 			return auth;
 		}
 

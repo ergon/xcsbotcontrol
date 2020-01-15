@@ -117,6 +117,9 @@ public class BotConfiguration {
 
 	protected SourceControlBlueprint sourceControlBlueprint;
 
+	public SourceControlBlueprint getSourceControlBlueprint() {
+		return sourceControlBlueprint;
+	}
 
 	@Override
 	public String toString() {

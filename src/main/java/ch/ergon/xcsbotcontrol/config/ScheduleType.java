@@ -1,5 +1,5 @@
 package ch.ergon.xcsbotcontrol.config;
 
-enum ScheduleType {
+public enum ScheduleType {
 	MANUAL, ON_COMMIT, HOURLY, DAILY, WEEKLY
 }

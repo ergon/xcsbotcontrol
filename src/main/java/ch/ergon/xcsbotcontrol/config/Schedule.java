@@ -2,7 +2,7 @@ package ch.ergon.xcsbotcontrol.config;
 
 import ch.ergon.xcsbotcontrol.api.model.WeekDay;
 
-class Schedule {
+public class Schedule {
 	private ScheduleType type;
 	private Integer hourOfDay;
 	private Integer minutesAfterHour;
