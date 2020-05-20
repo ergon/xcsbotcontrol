@@ -76,6 +76,7 @@ public class BotConfiguration {
 	 */
 	protected final TestingDestination testingDestinationType = TestingDestination.IOS_AND_WATCH;
 
+	protected  boolean useParallelDeviceTesting = true;
 
 	/*
 	 * Provisioning
@@ -88,9 +89,8 @@ public class BotConfiguration {
 	 * Misc
 	 */
 
-	protected boolean disableAppThinning = false;
 
-	protected boolean useParallelDeviceTesting = true;
+	protected boolean disableAppThinning = false;
 
 	protected Toolchain overrideToolchain;
 

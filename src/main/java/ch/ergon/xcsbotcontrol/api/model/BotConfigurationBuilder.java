@@ -97,6 +97,11 @@ public class BotConfigurationBuilder {
 		return this;
 	}
 
+	public BotConfigurationBuilder useParallelDeviceTesting(boolean parallel) {
+		config.useParallelDeviceTesting = parallel;
+		return this;
+	}
+
 	public BotConfigurationBuilder addTrigger(TriggerBuilder trigger) {
 		this.triggerBuilders.add(trigger);
 		return this;

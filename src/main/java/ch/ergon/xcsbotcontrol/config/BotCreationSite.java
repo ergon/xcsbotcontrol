@@ -30,6 +30,7 @@ public class BotCreationSite {
 	private boolean performArchive;
 	private boolean performArchiveExport;
 	private boolean performTest;
+	private boolean useParallelDeviceTesting;
 
 	private Schedule schedule;
 
@@ -98,6 +99,7 @@ public class BotCreationSite {
 				.performAnalyze(performAnalyze)
 				.performArchiveAndExport(performArchive, performArchiveExport)
 				.performTests(performTest)
+				.useParallelDeviceTesting(useParallelDeviceTesting)
 				.withScmBlueprint(blueprintBuilder);
 
 		for (PostBuildScriptTrigger trigger : postBuildScriptTriggers) {
