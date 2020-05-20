@@ -16,8 +16,8 @@ public class ProvisioningConfigurationBuilder {
 		return this;
 	}
 
-	public ProvisioningConfigurationBuilder addMissingDevicesToTeam(boolean add) {
-		config.addMissingDevicesToTeam = add;
+	public ProvisioningConfigurationBuilder addMissingDevicesToTeams(boolean add) {
+		config.addMissingDevicesToTeams = add;
 		return this;
 	}
 }

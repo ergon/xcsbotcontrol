@@ -24,7 +24,7 @@ public class BotCreationSite {
 	private String overrideToolchainName;
 	private Toolchain overrideToolchain;
 	private boolean manageCertsAndProfiles;
-	private boolean addMissingDevicesToTeam;
+	private boolean addMissingDevicesToTeams;
 	private Clean clean;
 	private boolean performAnalyze;
 	private boolean performArchive;
@@ -94,7 +94,7 @@ public class BotCreationSite {
 				.builtFromClean(clean)
 				.withProvisioningConfiguration(ProvisioningConfigurationBuilder.provisioningConfig()
 						.manageCertsAndProfiles(manageCertsAndProfiles)
-						.addMissingDevicesToTeam(addMissingDevicesToTeam))
+						.addMissingDevicesToTeams(addMissingDevicesToTeams))
 				.performAnalyze(performAnalyze)
 				.performArchiveAndExport(performArchive, performArchiveExport)
 				.performTests(performTest)
@@ -303,12 +303,12 @@ public class BotCreationSite {
 		this.manageCertsAndProfiles = manageCertsAndProfiles;
 	}
 
-	public boolean isAddMissingDevicesToTeam() {
-		return addMissingDevicesToTeam;
+	public boolean isAddMissingDevicesToTeams() {
+		return addMissingDevicesToTeams;
 	}
 
-	public void setAddMissingDevicesToTeam(boolean addMissingDevicesToTeam) {
-		this.addMissingDevicesToTeam = addMissingDevicesToTeam;
+	public void setAddMissingDevicesToTeams(boolean addMissingDevicesToTeams) {
+		this.addMissingDevicesToTeams = addMissingDevicesToTeams;
 	}
 
 	public Clean getClean() {
