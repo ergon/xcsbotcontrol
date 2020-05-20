@@ -24,7 +24,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import picocli.CommandLine;
 
-@CommandLine.Command(name = "xcsbotcontrol", mixinStandardHelpOptions = true, version = "xcsbotcontrol 1.0.1",
+@CommandLine.Command(name = "xcsbotcontrol", mixinStandardHelpOptions = true, version = "xcsbotcontrol 1.0.2",
 		description = "Interact with the Xcode Server API.")
 public class BotController implements Callable<Integer> {
 	@VisibleForTesting

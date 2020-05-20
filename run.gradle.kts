@@ -15,7 +15,7 @@ repositories {
 }
 
 dependencies {
-    implementation("ch.ergon.xcsbotcontrol:xcsbotcontrol:1.0.1")
+    implementation("ch.ergon.xcsbotcontrol:xcsbotcontrol:1.0.2")
 }
 
 application {
