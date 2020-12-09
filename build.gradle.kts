@@ -36,14 +36,14 @@ repositories {
 }
 
 dependencies {
-    compile("com.google.code.gson:gson:2.7")
-    compile("com.google.guava:guava:28.0-jre")
-    compile("info.picocli:picocli:4.1.4")
-    annotationProcessor("info.picocli:picocli-codegen:4.1.4")
-    testImplementation("org.junit.jupiter:junit-jupiter-api:5.5.2")
-    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.5.2")
-    testCompile("org.mockito:mockito-core:3.2.4")
-    testCompile("org.mockito:mockito-junit-jupiter:3.2.4")
+    compile("com.google.code.gson:gson:2.8.6")
+    compile("com.google.guava:guava:30.0-jre")
+    compile("info.picocli:picocli:4.5.2")
+    annotationProcessor("info.picocli:picocli-codegen:4.5.2")
+    testImplementation("org.junit.jupiter:junit-jupiter-api:5.7.0")
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.7.0")
+    testCompile("org.mockito:mockito-core:3.6.28")
+    testCompile("org.mockito:mockito-junit-jupiter:3.6.28")
 }
 
 tasks.withType<JavaCompile> {
@@ -52,7 +52,7 @@ tasks.withType<JavaCompile> {
 }
 
 group = "ch.ergon.xcsbotcontrol"
-version = "1.0.2"
+version = "1.0.3"
 
 publishing {
     publications {
